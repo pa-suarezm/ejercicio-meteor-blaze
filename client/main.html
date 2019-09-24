@@ -1,0 +1,52 @@
+<head>
+  <title>Ejercicio</title>
+</head>
+<body>
+  <h1>Eventos Universidad</h1>
+  <hr>
+  <!--
+  Registrar los eventos organizados por la Universidad
+  - Nombre
+  - Descripción
+  - Responsable
+  - Fecha de inicio
+  - Fecha final
+  - Ubicación
+
+  Plantilla de formulario:
+  - Text input (nombre y descripción)
+  - Botón para enviar
+  -->
+  <h3>Crear un nuevo evento</h3>
+  {{> formulario}}
+  <hr>
+
+  <h3>Eventos</h3>
+  {{> eventos}}
+  <hr>
+</body>
+
+<template name="eventos">
+  <ol>
+    {{#each eventsList}}
+    <li>
+      <p>Nombre: {{nombre}}</p>
+      <p>Descripcion: {{descripcion}}</p>
+      <p>Fechas: {{fechaInicio}} - {{fechaFinal}}</p>
+      <p>Ubicación: {{ubicacion}}</p>
+    </li>
+    {{/each}}
+  </ol>
+</template>
+
+<template name="formulario">
+  <form>
+    <p>Nombre: <input type="text" name="nombre"></p>
+    <p>Descripción: <input type="text" name="descripcion"></p>
+    <p>Fecha inicio: <input type="date" name="fechaInicio"></p>
+    <p>Fecha final: <input type="date" name="fechaFinal"></p>
+    <p>Ubicación: <input type="text" name="ubicacion"></p>
+
+    <input type="submit" name="save" value="Save">
+  </form>
+</template>
